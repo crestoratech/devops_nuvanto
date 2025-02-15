@@ -7,11 +7,14 @@ pool:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
-
 - bash: ls -R $(System.DefaultWorkingDirectory)
+- bash: echo $(Agent.OS)
+- bash: echo $(Agent.BuildDirectory)
+- bash: echo $(Build.BuildId)
+- bash: echo $(Build.BuildNumber)
+- bash: echo $(Build.SourceVersion)
+- bash: java --version
+- bash: node--version
+- bash: python --version
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
 
